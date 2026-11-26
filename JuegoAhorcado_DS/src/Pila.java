@@ -1,7 +1,7 @@
 public class Pila {
     // Declaracion de variables
-    private String[] letras;
-    private int cima;
+    private static String[] letras;
+    private static int cima;
 
     // Crear Pila
     public Pila(){
@@ -10,7 +10,7 @@ public class Pila {
     }
 
     // Insertar (PUSH)
-    public void insertar(String letra){
+    public static void insertar(String letra){
         // Insertar letra si la pila no esta llena
         if (!estaLlena()){
             cima++;
@@ -21,7 +21,7 @@ public class Pila {
     }
 
     // Eliminar (POP)
-    public void eliminar(String letra){
+    public static void eliminar(String letra){
         if (!estaVacia()){
             letra = letras[cima];
             cima--;
@@ -31,7 +31,7 @@ public class Pila {
     }
 
     // Mostrar ultima letra ingresada (PEEK)
-    public void mostrarCima(){
+    public static void mostrarCima(){
         if (!estaVacia()){
             System.out.println("Ultima letra ingresada: " + letras[cima]);
         } else{
@@ -40,7 +40,7 @@ public class Pila {
     }
 
     // Mostrar cantidad de elementos existentes
-    public void mostrarCantidadElementos(){
+    public static void mostrarCantidadElementos(){
         if (!estaVacia()){
             System.out.println("Elementos Existentes: " + (cima + 1));
         }
@@ -50,7 +50,7 @@ public class Pila {
     }
 
     // Vaciar pila
-    public void vaciarPila(){
+    public static void vaciarPila(){
         if (!estaVacia()){
             cima = -1;
             System.out.println("Pila vaciada correctamente");
@@ -60,11 +60,11 @@ public class Pila {
     }
 
     // Metodos auxiliares
-    private boolean estaLlena() {
+    private static boolean estaLlena() {
         return cima == letras.length - 1;
     }
 
-    private boolean estaVacia(){
+    private static boolean estaVacia(){
         return cima == -1;
     }
 }
