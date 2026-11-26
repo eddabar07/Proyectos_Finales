@@ -39,14 +39,15 @@ public class Pila {
         }
     }
 
-    // Mostrar cantidad de elementos existentes
-    public static void mostrarCantidadElementos(){
-        if (!estaVacia()){
-            System.out.println("Elementos Existentes: " + (cima + 1));
+    // Obtener las letras ingresadas
+    public static char[] obtenerLetras(){
+        char[] letrasIngresadas = new char[cima + 1];
+
+        for (int i = 0; i <= cima; i++){
+            letrasIngresadas[i] = letras[i];
         }
-        else{
-            System.out.println("La pila se encuentra vacia.");
-        }
+
+        return letrasIngresadas;
     }
 
     // Vaciar pila
