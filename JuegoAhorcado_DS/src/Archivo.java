@@ -25,7 +25,7 @@ public class Archivo {
                 archivo.createNewFile();
                 System.out.println("Archivo creado correctamente");
             }
-            
+
         } catch (IOException e){
             System.out.println("Ocurrio un error al validar el archivo");
         }
@@ -37,12 +37,20 @@ public class Archivo {
         System.out.print("¿Cuántas palabras vas a ingresar?: ");
         int cantidad = capturar.nextInt(); capturar.nextLine();
 
-        // Crear el vector para almacenar las palabras
-        String[] palabras = new String[cantidad];
+        // Obtener las palabras que ya existen en el archivo
+        String[] palabrasExistentes = leerPalabras();
 
-        // Llenar el vector con palabras
-        for (int i = 0; i < palabras.length; i++){
-            System.out.print("Ingresa la palabra " + (i + 1) + ": ");
+        // Crear el vector para almacenar las palabras existentes y nuevas
+        String[] palabras = new String[palabrasExistentes.length + cantidad];
+
+        // Copiar las palabras existentes al nuevo vector
+        for (int i = 0; i < palabrasExistentes.length; i++){
+            palabras[i] = palabrasExistentes[i];
+        }
+
+        // Llenar el vector con las nuevas palabras
+        for (int i = palabrasExistentes.length; i < palabras.length; i++){
+            System.out.print("Ingresa la palabra " + (i - palabrasExistentes.length + 1) + ": ");
             String palabra = capturar.nextLine().toUpperCase().trim();
             palabras[i] = palabra;
         }
