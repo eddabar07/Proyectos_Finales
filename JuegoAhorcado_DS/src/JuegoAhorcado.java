@@ -23,7 +23,7 @@ public class JuegoAhorcado {
     }
 
     // Verificar si se ha adivinado la palabra
-    public boolean seAdivinoLaPalabra(String palabraSecreta, String[] letrasIngresadas){
+    public static boolean seAdivinoLaPalabra(String palabraSecreta, String[] letrasIngresadas){
         // Recorrer la palabra secreta
         for (int i = 0; i < palabraSecreta.length(); i++){
             // Variable para saber si se encontro la letra
@@ -44,5 +44,36 @@ public class JuegoAhorcado {
         }
         // En caso de haber sido adivinada
         return true;
+    }
+
+    // Obtener la palabra adivinada
+    public static String obtenerPalabraAdivinada(String palabraSecreta, String[] letrasIngresadas){
+        // Variable para guardar la palabra adivinada
+        String palabraAdivinada = "";
+
+        // Recorremos la palabra secreta
+        for (int i = 0; i < palabraSecreta.length(); i++){
+            // Variable para saber si la letra ingresada se encuentra en la palabra
+            boolean encontrada = false;
+
+            // Recorremos las palabras ingresadas
+            for (int j = 0; j < letrasIngresadas.length; j++){
+                // Comparar la letra ingresada con cada una de las letras de la palabra
+                if (String.valueOf(palabraSecreta.charAt(i)).equalsIgnoreCase(letrasIngresadas[j])){
+                    encontrada = true;
+                    break;
+                }
+            }
+
+            // Si se encontro la palabra, la agregamos a la palabra adivinda
+            if (encontrada){
+                palabraAdivinada += palabraSecreta.charAt(i) + " ";
+            } else{
+                palabraAdivinada += "_ ";
+            }
+        }
+
+        // Devolvemos la palabra adivinada
+        return palabraAdivinada.toUpperCase().trim();
     }
 }
