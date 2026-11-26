@@ -25,6 +25,7 @@ public class Archivo {
                 archivo.createNewFile();
                 System.out.println("Archivo creado correctamente");
             }
+            
         } catch (IOException e){
             System.out.println("Ocurrio un error al validar el archivo");
         }
@@ -114,5 +115,31 @@ public class Archivo {
             System.out.println("Ocurrio un error al leer el archivo");
         }
         return new String[0];
+    }
+
+    // Reiniciar el archivo
+    public static void reiniciarArchivo(){
+        // Objeto File
+        File archivoNuevo = new File("Palabras.txt");
+
+        try{
+            // Comprobar si existe el archivo
+            System.out.println("Buscando Archivo...");
+
+            if (archivoNuevo.exists()){
+                System.out.println("Archivo Encontrado...");
+                System.out.println("Eliminando Archivo...");
+                archivoNuevo.delete();
+                System.out.println("Archivo antiguo eliminado correctamente");
+
+                System.out.println("Creando nuevo archivo...");
+                archivoNuevo.createNewFile();
+                System.out.println("Archivo creado correctamente.");
+            } else{
+                System.out.println("El archivo no existe");
+            }
+        } catch (IOException e){
+            System.out.println("Ocurrio un error al reiniciar el archivo");
+        }
     }
 }
