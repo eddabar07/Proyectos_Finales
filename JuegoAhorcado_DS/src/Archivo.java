@@ -64,7 +64,6 @@ public class Archivo {
 
             salto = salto / 2;
         }
-
         
         // Guardar el vector de palabras en el archivo Palabras.txt
         try{
@@ -80,9 +79,40 @@ public class Archivo {
             escribir.close();
 
             System.out.println("Palabras guardadas correctamente");
-            
+
         } catch (IOException e){
             System.out.println("Ocurrio un error al guardar las palabras en el archivo Palabras.txt");
         }
+    }
+
+    // Cargar palabras del archivo para usarlas en el juego
+    public static String[] leerPalabras(){
+        // Objeto File
+        File archivo = new File("Archivos/Palabras.txt");
+
+        // Determinar tamanio del arreglo
+        try (Scanner leerCantidad = new Scanner(archivo)) {
+            int cantidad = 0;
+            while (leerCantidad.hasNextLine()) {
+                leerCantidad.nextLine();
+                cantidad++;
+            }
+
+            // Guardar palabras en el vector
+            String[] palabras = new String[cantidad];
+
+            try (Scanner lector = new Scanner(archivo)) {
+                for (int i = 0; i < palabras.length; i++) {
+                    palabras[i] = lector.nextLine().toUpperCase().trim();
+                }
+            }
+
+            // Devolver el vector con las palabras dentro
+            return palabras;
+
+        } catch (IOException e) {
+            System.out.println("Ocurrio un error al leer el archivo");
+        }
+        return new String[0];
     }
 }
