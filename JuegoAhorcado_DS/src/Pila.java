@@ -1,16 +1,16 @@
 public class Pila {
     // Declaracion de variables
-    private static String[] letras;
+    private static char[] letras;
     private static int cima;
 
     // Crear Pila
     public Pila(){
-        letras = new String[27];
+        letras = new char[27];
         cima = -1;
     }
 
     // Insertar (PUSH)
-    public static void insertar(String letra){
+    public static void insertar(char letra){
         // Insertar letra si la pila no esta llena
         if (!estaLlena()){
             cima++;
@@ -21,7 +21,7 @@ public class Pila {
     }
 
     // Eliminar (POP)
-    public static void eliminar(String letra){
+    public static void eliminar(char letra){
         if (!estaVacia()){
             letra = letras[cima];
             cima--;
