@@ -11,7 +11,7 @@ public class Archivo {
     // Validar si existe el archivo Palabras.txt
     public static void validarArchivo(){
         // Objeto para crear archivo
-        File archivo = new File("Archivos/Palabras.txt");
+        File archivo = new File("Palabras.txt");
 
         try{
             // Comprobar si existe el archivo
@@ -77,7 +77,7 @@ public class Archivo {
         // Guardar el vector de palabras en el archivo Palabras.txt
         try{
             // Objeto para escribir sobre el archivo
-            PrintWriter escribir = new PrintWriter(new FileWriter("Archivos/Palabras.txt"));
+            PrintWriter escribir = new PrintWriter(new FileWriter("Palabras.txt", true));
 
             // Meter las palabras del vector en el archivo
             for (int i = 0; i < palabras.length; i++){
@@ -97,7 +97,7 @@ public class Archivo {
     // Cargar palabras del archivo para usarlas en el juego
     public static String[] leerPalabras(){
         // Objeto File
-        File archivo = new File("Archivos/Palabras.txt");
+        File archivo = new File("Palabras.txt");
 
         // Determinar tamanio del arreglo
         try (Scanner leerCantidad = new Scanner(archivo)) {
