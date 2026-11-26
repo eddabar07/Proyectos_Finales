@@ -1,6 +1,14 @@
 import java.util.Random;
 
 public class JuegoAhorcado {
+    // Abcedario
+    char[] abecedario = {
+    'A', 'B', 'C', 'D', 'E', 'F', 'G',
+    'H', 'I', 'J', 'K', 'L', 'M', 'N',
+    'Ñ', 'O', 'P', 'Q', 'R', 'S', 'T',
+    'U', 'V', 'W', 'X', 'Y', 'Z'
+    };
+    
     // Cargar palabras para el juego
     public static String[] cargarPalabras(){
         // Vector para guardar las palabras
@@ -76,4 +84,7 @@ public class JuegoAhorcado {
         // Devolvemos la palabra adivinada
         return palabraAdivinada.toUpperCase().trim();
     }
+
+    // Obtener letras disponibles
+
 }
