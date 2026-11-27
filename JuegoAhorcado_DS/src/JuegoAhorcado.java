@@ -91,8 +91,13 @@ public class JuegoAhorcado {
             // Obtener letra
             char letra = entrada.charAt(0);
 
-            // Validar que sea una letra del abecedario
-            if (obtenerLetrasDisponibles(Pila.obtenerLetras()).indexOf(letra) == -1){
+            // Obtener las letras disponibles
+            String letrasDisponibles = obtenerLetrasDisponibles(Pila.obtenerLetras());
+
+            // Convertir String a arreglo de caracteres
+            char[] arregloLetras = letrasDisponibles.toCharArray();
+
+            if (!busquedaBinaria(arregloLetras, letra)) {
                 System.out.println("La letra no es válida o ya fue ingresada.");
                 continue;
             }
@@ -197,5 +202,38 @@ public class JuegoAhorcado {
             }
         }
         return letrasDisponibles;
-    }   
+    }
+    
+    // Obtener la posición de una letra en el abecedario
+    public static int posicionAbecedario(char letra) {
+        for (int i = 0; i < abecedario.length; i++) {
+            if (abecedario[i] == letra) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    // Busqueda binaria
+    public static boolean busquedaBinaria(char[] letrasIngresadas, char letra) {
+        int izquierda = 0;
+        int derecha = letrasIngresadas.length - 1;
+
+        while (izquierda <= derecha) {
+            int medio = izquierda + (derecha - izquierda) / 2;
+
+            int posicionMedio = posicionAbecedario(letrasIngresadas[medio]);
+            int posicionLetra = posicionAbecedario(letra);
+
+            if (posicionMedio == posicionLetra) {
+                return true;
+            } else if (posicionMedio < posicionLetra) {
+                izquierda = medio + 1;
+            } else {
+                derecha = medio - 1;
+            }
+        }
+
+        return false;
+    }
 }
