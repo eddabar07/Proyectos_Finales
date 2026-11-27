@@ -4,7 +4,7 @@ public class PruebaAhorcado {
     public static void main(String[] args){
         // Declaracion de variables
         Scanner sc = new Scanner(System.in);
-        int opc;
+        String opc;
 
         do{
             System.out.println();
@@ -14,27 +14,27 @@ public class PruebaAhorcado {
             System.out.println("""
             1. Verificar archivo
             2. Llenar Archivo con Palabras
-            3. Borrar Archivo
+            3. Reiniciar Archivo
             4. Jugar
             5. Salir
             """);
             System.out.print("Ingresa una opción: ");
-            opc = sc.nextInt(); sc.nextLine();
+            opc = sc.nextLine();
 
             switch (opc) {
-                case 1:
+                case "1":
                     Archivo.validarArchivo();
                     break;
 
-                case 2:
+                case "2":
                     Archivo.llenarArchivo();
                     break;
 
-                case 3:
+                case "3":
                     Archivo.reiniciarArchivo();
                     break;
 
-                case 4:
+                case "4":
                     // Cargar palabras del archivo
                     String[] palabras = JuegoAhorcado.cargarPalabras();
 
@@ -51,7 +51,7 @@ public class PruebaAhorcado {
                     }
                     break;
 
-                case 5:
+                case "5":
                     System.out.println("Gracias por jugar. ¡Hasta pronto!");
                     break;
 
@@ -59,6 +59,6 @@ public class PruebaAhorcado {
                     System.out.println("Opción invalida. Intente de nuevo.");
                     break;
             }
-        } while (opc != 5); sc.close();
+        } while (!(opc.equals("5"))); sc.close();
     }
 }
