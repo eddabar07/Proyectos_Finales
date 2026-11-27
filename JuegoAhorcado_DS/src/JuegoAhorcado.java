@@ -228,12 +228,13 @@ public class JuegoAhorcado {
             if (posicionMedio == posicionLetra) {
                 return true;
             } else if (posicionMedio < posicionLetra) {
-                izquierda = medio + 1;
+                izquierda = medio + 1; // Si es maypr, continua en la mitad derecha
             } else {
-                derecha = medio - 1;
+                derecha = medio - 1; // Si es menor, continuar en la mitad izquierda
             }
         }
 
+        // La letra no se encontró en el arreglo
         return false;
     }
 }
