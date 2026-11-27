@@ -77,7 +77,7 @@ public class Archivo {
         // Guardar el vector de palabras en el archivo Palabras.txt
         try{
             // Objeto para escribir sobre el archivo
-            PrintWriter escribir = new PrintWriter(new FileWriter("Palabras.txt", true));
+            PrintWriter escribir = new PrintWriter(new FileWriter("Palabras.txt"));
 
             // Meter las palabras del vector en el archivo
             for (int i = 0; i < palabras.length; i++){
